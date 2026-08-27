@@ -1,0 +1,53 @@
+// Design tokens — yiling-manager
+// A cool-neutral surface system with one confident indigo-violet accent,
+// tuned for a data-dense CJK+Latin admin tool (not a marketing palette).
+
+:root {
+  // ---- palette ----
+  --y-canvas: #f5f6fa;
+  --y-surface: #ffffff;
+  --y-surface-sunken: #fafbfc;
+  --y-border: #e7e9f0;
+  --y-text-primary: #1f2430;
+  --y-text-secondary: #6b7280;
+  --y-text-placeholder: #a3a9b7;
+
+  --y-accent: #5b5fef;
+  --y-accent-hover: #4a4ee0;
+  --y-accent-active: #3f42c9;
+  --y-accent-soft: #eef0ff;
+
+  --y-sidebar-bg: #1a1d2e;
+  --y-sidebar-bg-hover: #23273d;
+  --y-sidebar-active: #2f3555;
+  --y-sidebar-text: #9aa0c3;
+  --y-sidebar-text-active: #ffffff;
+
+  // ---- elevation ----
+  --y-shadow-sm: 0 1px 2px rgba(31, 36, 48, 0.06);
+  --y-shadow-md: 0 1px 2px rgba(31, 36, 48, 0.04), 0 4px 16px rgba(31, 36, 48, 0.08);
+  --y-shadow-lg: 0 2px 4px rgba(31, 36, 48, 0.06), 0 12px 32px rgba(31, 36, 48, 0.12);
+  --y-shadow-accent: 0 4px 12px rgba(91, 95, 239, 0.28);
+
+  // ---- shape / rhythm ----
+  --y-radius-sm: 6px;
+  --y-radius-md: 10px;
+  --y-radius-lg: 14px;
+  --y-gap: 16px;
+
+  // ---- type ----
+  --y-font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  // ---- retint Element Plus itself, so every existing component
+  // (buttons, inputs, tables, dialogs, tags...) picks this up for free ----
+  --el-color-primary: var(--y-accent);
+  --el-color-primary-light-3: #8083f3;
+  --el-color-primary-light-5: #a3a6f7;
+  --el-color-primary-light-7: #c6c8fb;
+  --el-color-primary-light-8: #d8dafd;
+  --el-color-primary-light-9: var(--y-accent-soft);
+  --el-color-primary-dark-2: var(--y-accent-active);
+  --el-border-radius-base: var(--y-radius-sm);
+  --el-box-shadow-light: var(--y-shadow-sm);
+  --el-font-family: var(--y-font-sans);
+}

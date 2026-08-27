@@ -23,7 +23,7 @@ import TagsView from './components/TagsView.vue'
 
 <style scoped>
 .app-wrapper { display:flex; height:100vh; }
-.sidebar-container { width:210px; background:#304156; flex-shrink:0; overflow-y:auto; }
-.main-container { flex:1; display:flex; flex-direction:column; overflow:hidden; }
-.app-main { flex:1; overflow:auto; padding:16px; background:#f0f2f5; }
+.sidebar-container { width:212px; background:var(--y-sidebar-bg); flex-shrink:0; overflow-y:auto; }
+.main-container { flex:1; display:flex; flex-direction:column; overflow:hidden; background:var(--y-canvas); }
+.app-main { flex:1; overflow:auto; }
 </style>

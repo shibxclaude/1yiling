@@ -1,1 +1,72 @@
+@use './variables.scss';
+
 html, body, #app { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--y-font-sans);
+  color: var(--y-text-primary);
+  background: var(--y-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+// Every module page wraps its content in <div class="app-container"> —
+// turning that into a floating elevated card lifts the entire app at once.
+.app-container {
+  background: var(--y-surface);
+  border-radius: var(--y-radius-md);
+  box-shadow: var(--y-shadow-md);
+  padding: 20px 24px;
+  margin: var(--y-gap);
+}
+
+.mb8 { margin-bottom: 12px; }
+
+// Buttons get a consistent tactile lift on hover — the one signature
+// micro-interaction applied everywhere, not scattered per-component.
+.el-button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-weight: 500;
+
+  &:not(.is-disabled):not(.is-text):not(.is-link):hover {
+    transform: translateY(-1px);
+  }
+}
+.el-button--primary:not(.is-disabled) {
+  box-shadow: var(--y-shadow-accent);
+  &:hover { box-shadow: 0 6px 16px rgba(91, 95, 239, 0.34); }
+}
+
+.el-card {
+  border-radius: var(--y-radius-md);
+  box-shadow: var(--y-shadow-md);
+  border: none;
+}
+
+.el-table {
+  border-radius: var(--y-radius-sm);
+  overflow: hidden;
+
+  th.el-table__cell {
+    background: var(--y-surface-sunken);
+    color: var(--y-text-secondary);
+    font-weight: 600;
+  }
+
+  .el-table__row:hover > td.el-table__cell {
+    background: var(--y-accent-soft);
+  }
+}
+
+.el-dialog {
+  border-radius: var(--y-radius-lg);
+  box-shadow: var(--y-shadow-lg);
+}
+
+.el-tag {
+  border-radius: var(--y-radius-sm);
+  font-weight: 500;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #d3d6e0; border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }

@@ -58,8 +58,32 @@ function logout() {
 </script>
 
 <style scoped>
-.navbar { height:50px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.1); }
-.right-menu { display:flex; align-items:center; gap:16px; }
-.right-menu-item { cursor:pointer; font-size:18px; }
-.user-name { cursor:pointer; }
+.navbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: var(--y-surface);
+  box-shadow: var(--y-shadow-sm);
+  position: relative;
+  z-index: 2;
+}
+.breadcrumb { font-weight: 600; color: var(--y-text-primary); }
+.right-menu { display:flex; align-items:center; gap:8px; }
+.right-menu-item {
+  cursor: pointer;
+  font-size: 17px;
+  color: var(--y-text-secondary);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--y-radius-sm);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.right-menu-item:hover { background: var(--y-accent-soft); color: var(--y-accent); }
+.user-dropdown { margin-left: 4px; padding-left: 12px; border-left: 1px solid var(--y-border); }
+.user-name { cursor:pointer; font-weight: 500; }
 </style>
