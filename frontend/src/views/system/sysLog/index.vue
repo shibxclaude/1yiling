@@ -12,7 +12,7 @@
     </el-form>
 
     <el-row class="mb8">
-      <el-button type="danger" :disabled="!selected.length" @click="handleBatchDelete">批量删除</el-button>
+      <el-button type="danger" :disabled="!selected.length" v-hasPermi="['system:log:remove']" @click="handleBatchDelete">批量删除</el-button>
       <right-toolbar v-model:show-search="showSearch" @query-table="fetchList" />
     </el-row>
 
