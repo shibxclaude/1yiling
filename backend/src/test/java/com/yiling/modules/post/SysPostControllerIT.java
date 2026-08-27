@@ -1,4 +1,4 @@
-package com.yiling.modules.dept;
+package com.yiling.modules.post;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -19,28 +19,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-class SysDeptControllerIT {
+class SysPostControllerIT {
 
     @Autowired private MockMvc mockMvc;
     @Autowired private ObjectMapper objectMapper;
 
     @Test
     @WithMockUser
-    void deptTree_containsSeededHeadOffice() throws Exception {
-        mockMvc.perform(post("/rest/sysDept/deptTree").contentType(MediaType.APPLICATION_JSON).content("{}"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data[0].label").value("总公司"));
-    }
-
-    @Test
-    @WithMockUser
-    void delete_blockedWhenChildrenExist() throws Exception {
-        Map<String, Object> child = Map.of("deptName", "子部门", "deptCode", "SUB1", "parentId", 100, "orderNum", 1, "status", 1);
-        mockMvc.perform(post("/rest/sysDept/save").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(child)))
+    void crud_roundTrip() throws Exception {
+        Map<String, Object> create = Map.of("postCode", "test1", "postName", "测试岗位", "postSort", 1);
+        mockMvc.perform(post("/rest/sysPost/save").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(create)))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(post("/rest/sysDept/delete").contentType(MediaType.APPLICATION_JSON).content("{\"id\":100}"))
-                .andExpect(jsonPath("$.code").value(500))
-                .andExpect(jsonPath("$.message").value("存在下级部门，不允许删除"));
+        mockMvc.perform(post("/rest/sysPost/listPage").contentType(MediaType.APPLICATION_JSON).content("{\"postName\":\"测试\",\"pageNo\":1,\"pageSize\":10}"))
+                .andExpect(jsonPath("$.data.total").value(1))
+                .andExpect(jsonPath("$.data.records[0].postCode").value("test1"));
     }
 }

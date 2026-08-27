@@ -32,6 +32,9 @@ public class JacksonConfig {
 
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jacksonCustomizer() {
-        return builder -> builder.modules(new SimpleModule().addDeserializer(LocalDateTime.class, new FlexibleLocalDateTimeDeserializer()));
+        // modulesToInstall ADDS to Spring Boot's auto-detected modules (incl. JavaTimeModule from
+        // jackson-datatype-jsr310 on the classpath) — using .modules(...) instead would REPLACE
+        // that list and silently break all LocalDateTime (de)serialization across the app.
+        return builder -> builder.modulesToInstall(new SimpleModule().addDeserializer(LocalDateTime.class, new FlexibleLocalDateTimeDeserializer()));
     }
 }
