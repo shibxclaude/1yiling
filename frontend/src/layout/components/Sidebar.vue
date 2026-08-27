@@ -49,25 +49,17 @@ const routes = computed(() => permissionStore.routes)
   background: var(--y-sidebar-bg-hover) !important;
 }
 
-/* the active item "lifts" off the sidebar surface via a real shadow +
-   hairline border, rather than a flat color fill — this is the intended
-   立体感 (dimensional) effect, not just a recolor */
+/* the active item is a solid accent pill that lifts off the white sidebar
+   via a colored shadow — a white-on-white tint had no real contrast, so
+   立体感 here comes from color + shadow together, not shadow alone */
 .sidebar-menu :deep(.el-menu-item.is-active) {
   background: var(--y-sidebar-active-bg) !important;
-  box-shadow: var(--y-shadow-md);
-  border: 1px solid var(--y-border);
+  color: var(--y-sidebar-text-active) !important;
+  box-shadow: var(--y-shadow-accent);
   font-weight: 600;
-  position: relative;
   transform: translateY(-1px);
 }
-.sidebar-menu :deep(.el-menu-item.is-active)::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 3px;
-  border-radius: 0 3px 3px 0;
-  background: var(--y-accent);
+.sidebar-menu :deep(.el-menu-item.is-active .el-icon) {
+  color: var(--y-sidebar-text-active) !important;
 }
 </style>

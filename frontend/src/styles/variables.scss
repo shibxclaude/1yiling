@@ -17,13 +17,13 @@
   --y-accent-active: #3f42c9;
   --y-accent-soft: #eef0ff;
 
-  // sidebar is a light, near-white panel — active item "lifts" via shadow,
-  // not a flat color fill
+  // sidebar is a light, near-white panel — active item is a solid accent
+  // pill (not a white-on-white tint, which read as no contrast at all)
   --y-sidebar-bg: #ffffff;
   --y-sidebar-bg-hover: var(--y-surface-sunken);
-  --y-sidebar-active-bg: #ffffff;
+  --y-sidebar-active-bg: var(--y-accent);
   --y-sidebar-text: var(--y-text-secondary);
-  --y-sidebar-text-active: var(--y-accent);
+  --y-sidebar-text-active: #ffffff;
 
   // dedicated dark backdrop for the login page's gradient canvas
   // (kept separate from the now-light sidebar tokens above)
