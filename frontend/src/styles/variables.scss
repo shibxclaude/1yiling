@@ -17,11 +17,17 @@
   --y-accent-active: #3f42c9;
   --y-accent-soft: #eef0ff;
 
-  --y-sidebar-bg: #1a1d2e;
-  --y-sidebar-bg-hover: #23273d;
-  --y-sidebar-active: #2f3555;
-  --y-sidebar-text: #9aa0c3;
-  --y-sidebar-text-active: #ffffff;
+  // sidebar is a light, near-white panel — active item "lifts" via shadow,
+  // not a flat color fill
+  --y-sidebar-bg: #ffffff;
+  --y-sidebar-bg-hover: var(--y-surface-sunken);
+  --y-sidebar-active-bg: #ffffff;
+  --y-sidebar-text: var(--y-text-secondary);
+  --y-sidebar-text-active: var(--y-accent);
+
+  // dedicated dark backdrop for the login page's gradient canvas
+  // (kept separate from the now-light sidebar tokens above)
+  --y-canvas-dark: #1a1d2e;
 
   // ---- elevation ----
   --y-shadow-sm: 0 1px 2px rgba(31, 36, 48, 0.06);

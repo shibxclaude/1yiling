@@ -23,33 +23,42 @@ const routes = computed(() => permissionStore.routes)
   align-items: center;
   gap: 10px;
   padding: 0 20px;
-  color: #fff;
+  color: var(--y-text-primary);
   font-weight: 600;
   letter-spacing: 0.3px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--y-border);
 }
 .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--y-accent);
-  box-shadow: 0 0 0 4px rgba(91, 95, 239, 0.25);
+  box-shadow: 0 0 0 4px var(--y-accent-soft);
 }
-.sidebar-menu { height: calc(100% - 50px); border-right: none; padding: 8px; }
+.sidebar-menu { height: calc(100% - 50px); border-right: none; padding: 10px; }
 .sidebar-menu :deep(.el-menu-item),
 .sidebar-menu :deep(.el-sub-menu__title) {
   border-radius: var(--y-radius-sm);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   height: 44px;
   line-height: 44px;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 .sidebar-menu :deep(.el-menu-item:hover),
 .sidebar-menu :deep(.el-sub-menu__title:hover) {
   background: var(--y-sidebar-bg-hover) !important;
 }
+
+/* the active item "lifts" off the sidebar surface via a real shadow +
+   hairline border, rather than a flat color fill — this is the intended
+   立体感 (dimensional) effect, not just a recolor */
 .sidebar-menu :deep(.el-menu-item.is-active) {
-  background: var(--y-sidebar-active) !important;
+  background: var(--y-sidebar-active-bg) !important;
+  box-shadow: var(--y-shadow-md);
+  border: 1px solid var(--y-border);
+  font-weight: 600;
   position: relative;
+  transform: translateY(-1px);
 }
 .sidebar-menu :deep(.el-menu-item.is-active)::before {
   content: '';

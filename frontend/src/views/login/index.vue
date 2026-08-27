@@ -61,7 +61,7 @@ function handleLogin() {
   background:
     radial-gradient(900px circle at 15% 20%, rgba(91, 95, 239, 0.35), transparent 60%),
     radial-gradient(900px circle at 85% 80%, rgba(91, 95, 239, 0.2), transparent 60%),
-    var(--y-sidebar-bg);
+    var(--y-canvas-dark);
 }
 .login-card {
   width: 380px;
