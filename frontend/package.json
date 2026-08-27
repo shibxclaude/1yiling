@@ -13,7 +13,7 @@
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.7.9",
-    "cropperjs": "^1.6.2",
+    "cropperjs": "^1.6.3",
     "dayjs": "^1.11.13",
     "element-plus": "^2.8.8",
     "nprogress": "^0.2.0",
