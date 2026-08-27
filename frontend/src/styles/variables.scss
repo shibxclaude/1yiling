@@ -21,7 +21,7 @@
   // pill (not a white-on-white tint, which read as no contrast at all)
   --y-sidebar-bg: #ffffff;
   --y-sidebar-bg-hover: var(--y-surface-sunken);
-  --y-sidebar-active-bg: var(--y-accent);
+  --y-sidebar-active-bg: #37398f; // ~40% darker than --y-accent (#5b5fef), per feedback
   --y-sidebar-text: var(--y-text-secondary);
   --y-sidebar-text-active: #ffffff;
 
