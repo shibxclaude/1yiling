@@ -663,7 +663,7 @@ docker compose up -d
 sleep 5
 docker compose exec mysql mysql -uroot -proot123 -e "USE yiling; SELECT COUNT(*) FROM sys_menu; SELECT COUNT(*) FROM sys_user;"
 ```
-Expected: 55 menus, 1 user, no errors.
+Expected: 50 menus, 1 user, no errors.
 
 - [ ] **Step 2: full backend test suite**
 

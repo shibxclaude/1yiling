@@ -434,7 +434,7 @@ cd /home/ubuntu/proj/1yiling
 docker compose up -d
 docker compose exec mysql mysql -uroot -proot123 -e "USE yiling; SELECT COUNT(*) FROM sys_menu; SELECT COUNT(*) FROM sys_user; SELECT username FROM sys_user;"
 ```
-Expected: `sys_menu` count = 55 (1 目录 + 9 菜单 + 45 按钮), `sys_user` count = 1, username `admin`. No SQL errors during container startup (`docker compose logs mysql` shows no `ERROR` lines from the init script).
+Expected: `sys_menu` count = 50 (1 目录 + 9 菜单 + 40 按钮), `sys_user` count = 1, username `admin`. No SQL errors during container startup (`docker compose logs mysql` shows no `ERROR` lines from the init script).
 
 - [ ] **Step 4: Commit**
 

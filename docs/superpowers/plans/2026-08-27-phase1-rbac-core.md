@@ -1410,7 +1410,7 @@ class SysMenuControllerIT {
     void roleMenuTreeSelect_adminHasAllMenusChecked() throws Exception {
         mockMvc.perform(post("/rest/sysMenu/roleMenuTreeSelect").contentType(MediaType.APPLICATION_JSON).content("{\"roleId\":1}"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.checkedKeys.length()").value(55));
+                .andExpect(jsonPath("$.data.checkedKeys.length()").value(50));
     }
 
     @Test
