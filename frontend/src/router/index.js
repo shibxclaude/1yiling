@@ -15,7 +15,8 @@ export const constantRoutes = [
       { path: 'dashboard', name: 'Dashboard', component: () => import('../views/dashboard/index.vue'), meta: { title: '首页' } },
       { path: 'system/role-auth-user/:roleId', name: 'RoleAuthUser', component: () => import('../views/system/role/authUser.vue'), meta: { title: '分配用户' } },
       { path: 'system/user-auth-role/:userId', name: 'UserAuthRole', component: () => import('../views/system/user/authRole.vue'), meta: { title: '分配角色' } },
-      { path: 'user/profile', name: 'Profile', component: () => import('../views/system/user/profile/index.vue'), meta: { title: '个人中心' } }
+      { path: 'user/profile', name: 'Profile', component: () => import('../views/system/user/profile/index.vue'), meta: { title: '个人中心' } },
+      { path: 'system/dict-data/:dictType', name: 'DictData', component: () => import('../views/system/dict/data.vue'), meta: { title: '字典数据' } }
     ]
   }
 ]

@@ -26,6 +26,9 @@
           <el-table-column prop="username" label="用户名称" />
           <el-table-column prop="nickName" label="用户昵称" />
           <el-table-column prop="deptName" label="部门" />
+          <el-table-column label="性别" width="80">
+            <template #default="{ row }"><dict-tag :options="sys_user_sex.value" :value="row.sex" /></template>
+          </el-table-column>
           <el-table-column prop="phone" label="手机号码" />
           <el-table-column label="状态" width="90">
             <template #default="{ row }"><el-switch :model-value="row.status === 1" :disabled="row.username === 'admin'" @change="(v) => toggleStatus(row, v)" /></template>
@@ -60,7 +63,9 @@
         <el-form-item label="用户名称" prop="username"><el-input v-model="form.username" :disabled="!!form.id" /></el-form-item>
         <el-form-item label="密码" prop="passwd" v-if="!form.id"><el-input v-model="form.passwd" type="password" show-password /></el-form-item>
         <el-form-item label="性别">
-          <el-select v-model="form.sex" style="width:120px"><el-option label="男" value="0" /><el-option label="女" value="1" /><el-option label="未知" value="2" /></el-select>
+          <el-select v-model="form.sex" style="width:120px">
+            <el-option v-for="d in sys_user_sex.value" :key="d.value" :label="d.label" :value="d.value" />
+          </el-select>
         </el-form-item>
         <el-form-item label="状态"><el-radio-group v-model="form.status"><el-radio :value="1">正常</el-radio><el-radio :value="2">停用</el-radio></el-radio-group></el-form-item>
         <el-form-item label="岗位">
@@ -87,7 +92,10 @@ import request from '../../../utils/request'
 import Pagination from '../../../components/Pagination.vue'
 import RightToolbar from '../../../components/RightToolbar.vue'
 import DeptTreeSelect from '../../../components/DeptTreeSelect.vue'
+import DictTag from '../../../components/DictTag.vue'
+import { useDict } from '../../../composables/useDict'
 
+const { sys_user_sex } = useDict('sys_user_sex')
 const router = useRouter()
 const showSearch = ref(true)
 const loading = ref(false)
