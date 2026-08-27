@@ -12,7 +12,8 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/dashboard',
     children: [
-      { path: 'dashboard', name: 'Dashboard', component: () => import('../views/dashboard/index.vue'), meta: { title: '首页' } }
+      { path: 'dashboard', name: 'Dashboard', component: () => import('../views/dashboard/index.vue'), meta: { title: '首页' } },
+      { path: 'system/role-auth-user/:roleId', name: 'RoleAuthUser', component: () => import('../views/system/role/authUser.vue'), meta: { title: '分配用户' } }
     ]
   }
 ]
